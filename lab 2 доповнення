@@ -1,0 +1,160 @@
+import math
+
+
+
+class Shape:
+    def __init__(self, color="red", filled=True):
+        self.color = color
+        self.filled = filled
+
+    @staticmethod
+    def shape(self, color: str, filled: bool) -> None:
+        print(f"Color is: {color}")
+        print(f"Do is filled: {filled}")
+
+    @property  # Getter
+    def f_color(self):
+        return self.color
+
+    @f_color.setter  # Setter
+    def f_color(self, color_inp):
+        self.color = color_inp
+
+    @property  # Getter
+    def f_filled(self):
+        return self.filled
+
+    @f_filled.setter  # Setter
+    def f_filled(self, filled_inp):
+        self.filled = filled_inp
+
+    @staticmethod
+    def get_area(self):
+        print("Since there is no relevant data to process, this class will not perform the action")
+
+    @staticmethod
+    def get_perimeter(self):
+        print("Since there is no relevant data to process, this class will not perform the action")
+
+    def to_string(self):
+        print(f"Shape color is:{self.color} and do shape is filled: {self.filled}")
+
+
+class Circle(Shape):
+
+    def __init__(self, radius=1):
+        super().__init__()
+        self.radius = radius
+
+    @staticmethod
+    def circle(self, radius: float, color: str, filled: bool) -> None:
+        print(f"Radius is: {radius}")
+        print(f"Color is: {color}")
+        print(f"Do is filled: {filled}")
+
+    @property  # Getter
+    def f_radius(self):
+        return self.radius
+
+    @f_radius.setter  # Setter
+    def f_radius(self, radius_inp):
+        self.radius = radius_inp
+
+    def get_area(self):
+        return math.pi * (self.radius ** 2)
+
+    def get_perimeter(self):
+        return 2 * math.pi * self.radius
+
+    def to_string(self):
+        print(f"Circle color is:{self.color} and do shape is filled: {self.filled} and radius = {self.radius}")
+
+
+class Rectangle(Shape):
+    def __init__(self, width=1, length=1):
+        super().__init__()
+        self.width = width
+        self.length = length
+
+    @staticmethod
+    def circle(self, width: float, length: float, color: str, filled: bool) -> None:
+        print(f"Width is: {width}")
+        print(f"Length is: {length}")
+        print(f"Color is: {color}")
+        print(f"Do is filled: {filled}")
+
+    @property  # Getter
+    def f_width(self):
+        return self.width
+
+    @f_width.setter  # Setter
+    def f_width(self, width):
+        self.width = width
+
+    @property  # Getter
+    def f_length(self):
+        return self.length
+
+    @f_length.setter  # Setter
+    def f_length(self, length):
+        self.length = length
+
+    def get_area(self):
+        return self.width * self.length
+
+    def get_perimeter(self):
+        return 2 * (self.width + self.length)
+
+    def to_string(self):
+        print(f"Rectangle color is:{self.color} and do shape is filled: {self.filled} and width = {self.width} and length = {self.length}")
+
+
+class Square(Rectangle):
+    def __init__(self):
+        super().__init__()
+
+    @staticmethod
+    def square(self, width: float, color: str, filled: bool) -> None:
+        print(f"Side is: {width}")
+        print(f"Color is: {color}")
+        print(f"Do is filled: {filled}")
+
+    @property  # Getter
+    def f_side(self):
+        return self.width
+
+    @f_side.setter  # Setter
+    def f_side(self, side):
+        self.width = side
+        self.length = side
+
+    def set_width(self, width):
+        self.width = width
+
+    def set_length(self, length):
+        self.length = length
+
+    def to_string(self):
+        print(f"Square color is:{self.color} and do shape is filled: {self.filled} and width = {self.width} and length = {self.length}")
+
+
+a = Shape()
+print(a.f_color)
+a.f_filled = False
+print(a.f_filled)
+
+b = Circle(6)
+print(b.get_area())
+print(b.get_perimeter())
+b.to_string()
+
+c = Rectangle()
+c.f_width = 4
+c.f_length = 20
+print(c.get_area())
+print(c.get_perimeter())
+c.to_string()
+
+d = Square()
+d.f_side = 8
+d.to_string()
